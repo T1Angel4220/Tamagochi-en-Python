@@ -120,19 +120,3 @@ Este proyecto está optimizado para funcionar directamente en **GitHub Pages**:
 3. Haz clic en **Save**. En un par de minutos tu juego estará accesible públicamente a través de la URL generada por GitHub.
 
 ---
-
-## 🛡️ Seguridad y Buenas Prácticas
-
-- **Cero exposición de credenciales:** El repositorio cuenta con un archivo `.gitignore` estricto que previene la subida accidental de archivos `.env`, claves, certificados, temporales (`*.tmp`), comprimidos (`*.zip`) y cachés de Python (`__pycache__`).
-- **Código limpio:** Separación adecuada de responsabilidades entre estructura (HTML), presentación (CSS) y comportamiento (JS / Python).
-
----
-
-## 👨‍💻 Autor
-
-- **Ángel Ayuquina** ([@T1Angel4220](https://github.com/T1Angel4220))
-- Universidad Técnica de Ambato (UTA)
-- Contacto: [aayuquina4220@uta.edu.ec](mailto:aayuquina4220@uta.edu.ec)
-
----
-*Si te gusta este proyecto o te resulta de utilidad para aprender, ¡no dudes en dejar una ⭐️ en el repositorio!*

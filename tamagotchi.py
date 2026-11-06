@@ -271,3 +271,4 @@ def ejecutar_juego_consola() -> None:
 
 if __name__ == "__main__":
     ejecutar_juego_consola()
+
