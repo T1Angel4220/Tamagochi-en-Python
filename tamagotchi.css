@@ -1,170 +1,301 @@
 /* Resetear estilos por defecto del navegador */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Estilos para el cuerpo y la fuente */
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #d2b48c;
-    color: #2c1f0e;
-  }
-  
-  /* Estilos para el contenedor principal */
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Estilos para el encabezado */
-  header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  header h1 {
-    font-size: 48px;
-    color: #6d4c41;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Estilos para el área del juego */
-  .game-area {
-    position: relative;
-    margin: 20px auto;
-    width: 600px;
-    height: 400px;
-    border: 5px solid #6d4c41;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .background-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .character {
-    position: absolute;
-    bottom: 45px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: auto;
-  }
-  
-  /* Estilos para las barras de estado */
-  .status-bars {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-  }
-  
-  .status-bar {
-    margin-bottom: 10px;
-  }
-  
-  label {
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  /* Estilos para los botones */
-  .buttons {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-  }
-  
-  .buttons button {
-    margin-right: 10px;
-    padding: 8px 15px;
-    background-color: #8b5a2b;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .buttons button:hover {
-    background-color: #6d4c41;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  /* Estilos para las barras de estado */
+/* Estilos para el cuerpo y la fuente */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #d2b48c;
+  color: #2c1f0e;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para el contenedor principal */
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos para el encabezado */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 42px;
+  color: #6d4c41;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Estilos para el área del juego */
+.game-area {
+  position: relative;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 650px;
+  height: 420px;
+  border: 5px solid #6d4c41;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  background-color: #000;
+}
+
+.background-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Personaje */
+.character {
+  position: absolute;
+  bottom: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  user-select: none;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* Animaciones del personaje */
+.character.bounce {
+  animation: petBounce 0.6s ease;
+}
+
+.character.wiggle {
+  animation: petWiggle 0.6s ease;
+}
+
+.character.sleep {
+  filter: brightness(0.6) drop-shadow(0 0 10px #3f51b5);
+  transform: translateX(-50%) rotate(-10deg);
+}
+
+.character.dead {
+  filter: grayscale(1) opacity(0.7);
+  transform: translateX(-50%) rotate(90deg);
+}
+
+@keyframes petBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-35px) scale(1.1); }
+}
+
+@keyframes petWiggle {
+  0%, 100% { transform: translateX(-50%) rotate(0deg); }
+  25% { transform: translateX(-50%) rotate(-15deg); }
+  75% { transform: translateX(-50%) rotate(15deg); }
+}
+
+/* Estilos para las barras de estado */
 .status-bars {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-  }
-  
-  .status-bar {
-    margin-bottom: 10px;
-  }
-  
-  label {
-    font-weight: bold;
-    margin-right: 10px;
-    color: #fff; /* Letras blancas */
-  }
-  
-  /* Estilos para las barras de estado */
-.status-bars {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-  }
-  
-  .status-bar {
-    margin-bottom: 10px;
-  }
-  
-  label {
-    font-weight: bold;
-    margin-right: 10px;
-    color: #fff; /* Letras blancas */
-  }
-  
-  /* Estilos para las barras de progreso en nuevo modelo */
-  progress {
-    width: 200px; /* Ancho de las barras */
-    height: 20px; /* Altura de las barras */
-    border: none; /* Sin borde */
-    background-color: #2e5743; /* Fondo verde oscuro */
-  }
-  
-  /* Estilos para el valor de la barra de progreso */
-  progress::-webkit-progress-value {
-    background-color: #b71c1c; /* Color rojo para la barra de progreso en WebKit */
-  }
-  
-  progress::-moz-progress-bar {
-    background-color: #b71c1c; /* Color rojo para la barra de progreso en Firefox */
-  }
-  
-  /* Estilos para los botones */
-  .buttons {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-  }
-  
-  .buttons button {
-    margin-right: 10px;
-    padding: 8px 15px;
-    background-color: #8b5a2b;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .buttons button:hover {
-    background-color: #6d4c41;
-  }
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 10px 14px;
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  z-index: 5;
+}
+
+.status-bar {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.status-bar:last-child {
+  margin-bottom: 0;
+}
+
+label {
+  font-weight: bold;
+  font-size: 13px;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  min-width: 90px;
+}
+
+/* Barras de progreso */
+progress {
+  width: 160px;
+  height: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  background-color: #37474f;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #37474f;
+  border-radius: 8px;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(90deg, #ff9800, #e65100);
+  border-radius: 8px;
+  transition: width 0.4s ease;
+}
+
+progress::-moz-progress-bar {
+  background: linear-gradient(90deg, #ff9800, #e65100);
+  border-radius: 8px;
+}
+
+/* Mensajes flotantes y retroalimentación */
+.floating-msg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(44, 31, 14, 0.85);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 10;
+  text-align: center;
+}
+
+.floating-msg.show {
+  opacity: 1;
+  transform: translate(-50%, -80px);
+}
+
+/* Indicador de estado superior derecho */
+.top-nav {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 5;
+  display: flex;
+  gap: 8px;
+}
+
+.nav-btn {
+  padding: 6px 12px;
+  font-size: 12px;
+  background-color: rgba(109, 76, 65, 0.85);
+  color: #ffffff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nav-btn:hover {
+  background-color: #4e342e;
+}
+
+/* Estilos para los botones de acción */
+.buttons {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  z-index: 5;
+}
+
+.buttons button {
+  padding: 10px 18px;
+  background-color: #8b5a2b;
+  color: #fff;
+  border: 2px solid #5d3d1f;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.buttons button:hover:not(:disabled) {
+  background-color: #6d4c41;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+.buttons button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.buttons button:disabled {
+  background-color: #795548;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Modal de Fin de Juego / Alerta */
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  z-index: 20;
+  color: #fff;
+}
+
+.modal-overlay h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #ff5252;
+}
+
+.modal-overlay p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  max-width: 400px;
+}
+
+.modal-overlay button {
+  padding: 10px 24px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-overlay button:hover {
+  background-color: #388e3c;
+}
+
+/* Estilos para el pie de página */
+footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #6d4c41;
+  font-weight: bold;
+}

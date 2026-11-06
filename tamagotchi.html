@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Juego - Tamagotchi RPG</title>
   <link rel="stylesheet" href="tamagotchi.css">
 </head>
@@ -9,14 +10,20 @@
 
   <div class="container">
     <header>
-      <h1>Bienvenido a Tamagotchi RPG</h1>
+      <h1>Tamagotchi RPG</h1>
     </header>
 
     <main>
       <section class="game-section">
-        <div class="game-area">
+        <div class="game-area" id="game-area">
+          <div class="top-nav">
+            <a href="MenuSeleccion.html" class="nav-btn">⬅ Volver al Menú</a>
+          </div>
+
           <img src="fondo.jpg" alt="Fondo del juego" class="background-img">
-          <img src="papa.png" alt="Personaje" class="character">
+          <img src="papa.png" alt="Personaje" class="character" id="pet">
+
+          <div class="floating-msg" id="status-msg">¡Cuida bien de tu mascota!</div>
 
           <div class="status-bars">
             <div class="status-bar">
@@ -38,17 +45,17 @@
           </div>
 
           <div class="buttons">
-            <button id="eat-btn">Comer</button>
-            <button id="sleep-btn">Dormir</button>
-            <button id="clean-btn">Limpiarse</button>
-            <button id="play-btn">Jugar</button>
+            <button id="eat-btn" title="Alimentar">🍔 Comer</button>
+            <button id="sleep-btn" title="Hacer dormir">💤 Dormir</button>
+            <button id="clean-btn" title="Bañar y limpiar">🧼 Limpiarse</button>
+            <button id="play-btn" title="Jugar y divertirse">🎮 Jugar</button>
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>© 2023 Tamagotchi RPG</p>
+      <p>© 2024 Tamagotchi RPG</p>
     </footer>
   </div>
 
